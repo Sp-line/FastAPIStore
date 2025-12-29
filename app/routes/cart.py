@@ -11,7 +11,7 @@ router = APIRouter(
     tags=['cart']
 )
 
-#ToDo
+
 @router.post(
     '/items',
     status_code=status.HTTP_200_OK,
@@ -31,7 +31,7 @@ def get_cart(cart_data: dict[int, int], db: Session = Depends(get_db)) -> CartRe
     service = CartService(db)
     return service.get_cart_details(cart_data)
 
-#ToDo
+
 @router.put(
     '',
     status_code=status.HTTP_200_OK,
@@ -42,7 +42,7 @@ def update_cart_item(request: UpdateCartRequest, db: Session = Depends(get_db)):
     updated_cart = service.update_cart_item(request.cart, item)
     return {'cart': updated_cart}
 
-#ToDo
+
 @router.delete(
     '/items/{product_id}',
     status_code=status.HTTP_200_OK,
